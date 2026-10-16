@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1250" viewBox="0 0 1200 1250" role="img" aria-labelledby="t d">
+<title id="t">Agentic stack architecture</title>
+<desc id="d">Six layers from SuperApps down to foundation. Nebula is the only agent loop; its Tools exit through Tyk Gateway with Cerbos to the MCP servers, and its model router exits to model endpoints. THEMIS services attach at each layer and join on a telemetry spine fed by Astrolabe.</desc>
+<style>
+text{font-family:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;font-size:13px;fill:#1b1f2a}
+.sub{font-size:11.5px;fill:#5b6170}
+.layer-label{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;fill:#5b6170}
+.ttl{font-weight:600}
+.layer{fill:#f7f8fa;stroke:#d6d9e1;stroke-dasharray:5 4}
+.fabric{fill:#f6f3fc;stroke:#6a5acd;stroke-dasharray:5 4}
+.plane{fill:#fbf2ec;stroke:#c9612f;stroke-dasharray:5 4}
+.n rect{fill:#eceef3;stroke:#9aa0ae} .n text{fill:#2a2f3c} .n .sub{fill:#5b6170}
+.l rect{fill:#efeafb;stroke:#6a5acd} .l text{fill:#2d2370}
+.t rect{fill:#e3f4ef;stroke:#1f8f6f} .t text{fill:#0b4a39}
+.h rect{fill:#fbeee6;stroke:#c9612f} .h text{fill:#5e2a10}
+.l .sub,.t .sub,.h .sub{opacity:0.8}
+rect{stroke-width:1}
+.arr{fill:none;stroke:#8a90a0;stroke-width:1.4}
+.dash{stroke-dasharray:4 3}
+</style>
+<rect width="1200" height="1250" fill="#ffffff"/>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#8a90a0" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+
+<rect class="layer" x="40" y="40" width="1120" height="120" rx="10"/>
+<text class="layer-label" x="56" y="62">UXP SuperApps</text>
+<g class="n"><rect x="60" y="80" width="200" height="56" rx="6"/><text class="ttl" x="160" y="102" text-anchor="middle">IntelWorkbench</text><text class="sub" x="160" y="121" text-anchor="middle">Analyst intent, accept or override</text></g>
+<g class="n"><rect x="280" y="80" width="200" height="56" rx="6"/><text class="ttl" x="380" y="102" text-anchor="middle">Mission Planner</text><text class="sub" x="380" y="121" text-anchor="middle">Calls Nebula, never a model</text></g>
+<g class="n"><rect x="500" y="80" width="200" height="56" rx="6"/><text class="ttl" x="600" y="102" text-anchor="middle">GeoDesk</text><text class="sub" x="600" y="121" text-anchor="middle">Direct platform APIs for tiles</text></g>
+<g class="n"><rect x="720" y="80" width="200" height="56" rx="6"/><text class="ttl" x="820" y="102" text-anchor="middle">LLM Control Center</text><text class="sub" x="820" y="121" text-anchor="middle">THEMIS UI, reads the plane</text></g>
+<g class="h"><rect x="940" y="80" width="200" height="56" rx="6"/><text class="ttl" x="1040" y="102" text-anchor="middle">KAIROS · ATHENA · SAGA</text><text class="sub" x="1040" y="121" text-anchor="middle">Phase gate, interventions, narrative</text></g>
+
+
+<rect class="layer" x="40" y="176" width="1120" height="96" rx="10"/>
+<text class="layer-label" x="56" y="191">Ingress</text>
+<g class="t"><rect x="60" y="200" width="640" height="56" rx="6"/><text class="ttl" x="380" y="222" text-anchor="middle">Tyk API Gateway</text><text class="sub" x="380" y="241" text-anchor="middle">All SuperApp traffic: STS token exchange, rate limits, routing to Nebula and platform APIs</text></g>
+<g class="h"><rect x="720" y="200" width="240" height="56" rx="6"/><text class="ttl" x="840" y="222" text-anchor="middle">KAIROS phase gate</text><text class="sub" x="840" y="241" text-anchor="middle">Checked at ingress, before Nebula</text></g>
+<g class="n"><rect x="980" y="200" width="160" height="56" rx="6"/><text class="ttl" x="1060" y="222" text-anchor="middle">Same cluster</text><text class="sub" x="1060" y="241" text-anchor="middle">Two listeners, two policies</text></g>
+<rect class="fabric" x="40" y="290" width="1120" height="300" rx="10"/>
+<text class="layer-label" x="56" y="312">AIAS agent fabric</text>
+
+<g class="l"><rect x="60" y="336" width="640" height="232" rx="6"/><text class="ttl" x="380" y="360" text-anchor="middle">Lumbra Nebula</text><text class="sub" x="380" y="378" text-anchor="middle">The only agent loop: plan, delegate, evaluate, provenance</text></g>
+<g class="l"><rect x="80" y="400" width="90" height="44" rx="5"/><text x="125" y="426" text-anchor="middle">Workflows</text></g>
+<g class="l"><rect x="180" y="400" width="100" height="44" rx="5"/><text x="230" y="426" text-anchor="middle">Capabilities</text></g>
+<g class="l"><rect x="290" y="400" width="80" height="44" rx="5"/><text x="330" y="426" text-anchor="middle">Skills</text></g>
+<g class="t"><rect x="380" y="400" width="80" height="44" rx="5"/><text x="420" y="426" text-anchor="middle">Tools</text></g>
+<g class="h"><rect x="80" y="472" width="150" height="44" rx="5"/><text class="ttl" x="155" y="490" text-anchor="middle">MOIRAI</text><text class="sub" x="155" y="506" text-anchor="middle">Session bounds</text></g>
+<g class="h"><rect x="240" y="472" width="130" height="44" rx="5"/><text class="ttl" x="305" y="490" text-anchor="middle">METIS</text><text class="sub" x="305" y="506" text-anchor="middle">Self-evaluation</text></g>
+<text class="sub" x="80" y="540">Each tool call carries identity,</text>
+<text class="sub" x="80" y="556">bounds, capability and workflow IDs</text>
+<g class="n"><rect x="500" y="400" width="180" height="36" rx="5"/><text class="ttl" x="590" y="417" text-anchor="middle">Model registry</text><text class="sub" x="590" y="430" text-anchor="middle">Classification, context, latency</text></g>
+<g class="h"><rect x="500" y="444" width="180" height="44" rx="5"/><text class="ttl" x="590" y="462" text-anchor="middle">MIMIR · ALETHEIA</text><text class="sub" x="590" y="478" text-anchor="middle">Elo baselines, ground truth</text></g>
+<g class="l"><rect x="500" y="500" width="180" height="60" rx="5"/><text class="ttl" x="590" y="520" text-anchor="middle">Model router</text><text class="sub" x="590" y="537" text-anchor="middle">Per-subtask selection</text><text class="sub" x="590" y="551" text-anchor="middle">Decision lands on the trace</text></g>
+
+<g class="n"><rect x="740" y="336" width="220" height="100" rx="6"/><text class="ttl" x="850" y="362" text-anchor="middle">MCP registry</text><text class="sub" x="850" y="382" text-anchor="middle">Tool and capability catalog</text><text class="sub" x="850" y="400" text-anchor="middle">Tyk publishes API-to-MCP tools</text><text class="sub" x="850" y="418" text-anchor="middle">System of record for tools</text></g>
+<g class="h"><rect x="740" y="452" width="220" height="56" rx="6"/><text class="ttl" x="850" y="474" text-anchor="middle">NOMOS · MGS · SKS · LOGOS</text><text class="sub" x="850" y="493" text-anchor="middle">Publish-time trust, access</text></g>
+<g class="t"><rect x="740" y="524" width="220" height="44" rx="6"/><text class="ttl" x="850" y="543" text-anchor="middle">Cerbos PlanResources</text><text class="sub" x="850" y="559" text-anchor="middle">Filters discovery before planning</text></g>
+
+<g class="l"><rect x="980" y="336" width="160" height="232" rx="6"/><text class="ttl" x="1060" y="430" text-anchor="middle">Astrolabe</text><text class="sub" x="1060" y="450" text-anchor="middle">Agentic monitoring</text><text class="sub" x="1060" y="468" text-anchor="middle">Spans from Nebula,</text><text class="sub" x="1060" y="484" text-anchor="middle">router and gateway</text><text class="sub" x="1060" y="504" text-anchor="middle">Rolls up primitives</text><text class="sub" x="1060" y="520" text-anchor="middle">to capability</text></g>
+
+<rect class="layer" x="40" y="620" width="1120" height="120" rx="10"/>
+<text class="layer-label" x="56" y="642">Governed exits</text>
+<g class="t"><rect x="60" y="656" width="240" height="56" rx="6"/><text class="ttl" x="180" y="678" text-anchor="middle">Tyk MCP Gateway</text><text class="sub" x="180" y="697" text-anchor="middle">AuthN, filtered discovery, OTel</text></g>
+<g class="t"><rect x="320" y="656" width="180" height="56" rx="6"/><text class="ttl" x="410" y="678" text-anchor="middle">Cerbos PDP sidecar</text><text class="sub" x="410" y="697" text-anchor="middle">After STS and ADS gate</text></g>
+<g class="h"><rect x="520" y="656" width="240" height="56" rx="6"/><text class="ttl" x="640" y="678" text-anchor="middle">MOIRAI · NOMOS · LOGOS</text><text class="sub" x="640" y="697" text-anchor="middle">Bounds and policy per call</text></g>
+<g class="t"><rect x="960" y="656" width="180" height="56" rx="6"/><text class="ttl" x="1050" y="678" text-anchor="middle">Tyk API route to models</text><text class="sub" x="1050" y="697" text-anchor="middle">Plain API policy, no AI Studio</text></g>
+
+<rect class="layer" x="40" y="810" width="1120" height="130" rx="10"/>
+<text class="layer-label" x="56" y="832">Capability platforms exposed as MCP servers</text>
+<g class="n"><rect x="80" y="850" width="200" height="56" rx="6"/><text class="ttl" x="180" y="872" text-anchor="middle">TESSERA</text><text class="sub" x="180" y="891" text-anchor="middle">Knowledge substrate</text></g>
+<g class="n"><rect x="300" y="850" width="200" height="56" rx="6"/><text class="ttl" x="400" y="872" text-anchor="middle">Canonical world model</text><text class="sub" x="400" y="891" text-anchor="middle">Geospatial, observation gate</text></g>
+<g class="n"><rect x="520" y="850" width="200" height="56" rx="6"/><text class="ttl" x="620" y="872" text-anchor="middle">LPS</text><text class="sub" x="620" y="891" text-anchor="middle">Mission platform services</text></g>
+<g class="h"><rect x="740" y="850" width="200" height="56" rx="6"/><text class="ttl" x="840" y="872" text-anchor="middle">ARBOR</text><text class="sub" x="840" y="891" text-anchor="middle">Chain of custody on results</text></g>
+<g class="n"><rect x="960" y="850" width="180" height="56" rx="6"/><text class="ttl" x="1050" y="872" text-anchor="middle">Model providers</text><text class="sub" x="1050" y="891" text-anchor="middle">Enclave-hosted serving</text></g>
+
+<rect class="plane" x="40" y="970" width="1120" height="150" rx="10"/>
+<text class="layer-label" x="56" y="992">THEMIS governance plane</text>
+<g class="h"><rect x="60" y="1010" width="250" height="44" rx="6"/><text class="ttl" x="185" y="1028" text-anchor="middle">AI Governance</text><text class="sub" x="185" y="1045" text-anchor="middle">KAIROS, MOIRAI, NOMOS, LOGOS</text></g>
+<g class="h"><rect x="330" y="1010" width="250" height="44" rx="6"/><text class="ttl" x="455" y="1028" text-anchor="middle">Trust Calibration</text><text class="sub" x="455" y="1045" text-anchor="middle">MIMIR, RAI, ATHENA, METIS</text></g>
+<g class="h"><rect x="600" y="1010" width="250" height="44" rx="6"/><text class="ttl" x="725" y="1028" text-anchor="middle">Content Integrity</text><text class="sub" x="725" y="1045" text-anchor="middle">ALETHEIA, MGS, SKS</text></g>
+<g class="h"><rect x="870" y="1010" width="270" height="44" rx="6"/><text class="ttl" x="1005" y="1028" text-anchor="middle">Provenance and Custody</text><text class="sub" x="1005" y="1045" text-anchor="middle">ARBOR, SAGA</text></g>
+<g class="h"><rect x="60" y="1068" width="1080" height="36" rx="6"/><text class="ttl" x="600" y="1090" text-anchor="middle">Telemetry spine: ARGUS · LOGOS · RAI on one trace ID. RAI returns to ATHENA at the top.</text></g>
+
+<rect class="layer" x="40" y="1140" width="1120" height="80" rx="10"/>
+<text class="layer-label" x="56" y="1162">Foundation</text>
+<g class="n"><rect x="60" y="1172" width="150" height="36" rx="6"/><text class="ttl" x="135" y="1195" text-anchor="middle">ASGARD</text></g>
+<g class="n"><rect x="230" y="1172" width="150" height="36" rx="6"/><text class="ttl" x="305" y="1195" text-anchor="middle">BIFROST</text></g>
+<g class="n"><rect x="400" y="1172" width="150" height="36" rx="6"/><text class="ttl" x="475" y="1195" text-anchor="middle">Nitro CI/CD</text></g>
+<g class="n"><rect x="570" y="1172" width="150" height="36" rx="6"/><text class="ttl" x="645" y="1195" text-anchor="middle">Platforma IDP</text></g>
+<g class="n"><rect x="740" y="1172" width="220" height="36" rx="6"/><text class="ttl" x="850" y="1195" text-anchor="middle">Elastic · Neo4j · Snowflake</text></g>
+<g class="n"><rect x="980" y="1172" width="160" height="36" rx="6"/><text class="ttl" x="1060" y="1195" text-anchor="middle">NATS JetStream</text></g>
+
+<path class="arr" d="M160 136 L160 196" marker-end="url(#ah)"/>
+<path class="arr" d="M380 136 L380 196" marker-end="url(#ah)"/>
+<path class="arr" d="M600 136 L600 196" marker-end="url(#ah)"/>
+<path class="arr" d="M270 256 L270 332" marker-end="url(#ah)"/>
+<path class="arr" d="M740 386 L704 386" marker-end="url(#ah)"/>
+<path class="arr" d="M420 444 L420 630 L180 630 L180 652" marker-end="url(#ah)"/>
+<path class="arr" d="M590 560 L590 605 L1050 605 L1050 652" marker-end="url(#ah)"/>
+<path class="arr" d="M300 684 L316 684" marker-end="url(#ah)"/>
+<path class="arr" d="M180 712 L180 780 L840 780"/>
+<path class="arr" d="M180 780 L180 846" marker-end="url(#ah)"/>
+<path class="arr" d="M400 780 L400 846" marker-end="url(#ah)"/>
+<path class="arr" d="M620 780 L620 846" marker-end="url(#ah)"/>
+<path class="arr" d="M840 780 L840 846" marker-end="url(#ah)"/>
+<path class="arr" d="M1050 712 L1050 846" marker-end="url(#ah)"/>
+<path class="arr dash" d="M700 444 L976 444" marker-end="url(#ah)"/>
+<path class="arr dash" d="M1140 540 L1152 540 L1152 1086 L1144 1086" marker-end="url(#ah)"/>
+</svg>
